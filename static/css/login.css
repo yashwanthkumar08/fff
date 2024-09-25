@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+}
+
+.container {
+    display: flex; /* Flexbox for side-by-side layout */
+    width: 100vw; /* Container width */
+    height: 100vh;
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+}
+
+.left {
+    flex: 1; /* Left side takes remaining space */
+    background-color: #303030; /* Blue background for the left side */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    color: white; /* Text color for left side */
+    padding: 20px; /* Padding for content */
+}
+
+.right {
+    flex: 1; /* Right side takes equal space */
+    background-color: #ffffff; /* White background for the form */
+    padding: 40px; /* Padding around the form */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333; /* Darker color for the heading */
+}
+
+form {
+    display: flex; /* Flexbox for form layout */
+    flex-direction: column; /* Stack inputs vertically */
+    position: relative;
+    top: 100px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin: 10px 0; /* Margin between inputs */
+    border: none; /* Remove the border */
+    border-bottom: 1px solid #ccc; /* Light border at the bottom */
+    border-radius: 0; /* Remove rounded corners */
+    font-size: 16px; /* Font size for input fields */
+    width: 100%; /* Full width inputs */
+    background-color: transparent; /* Transparent background */
+    transition: border-bottom 0.3s ease; /* Smooth transition */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom: 1px solid #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+form:hover input[type="text"],
+form:hover input[type="password"] {
+    opacity: 1; /* Make inputs visible on hover */
+}
+
+button {
+    padding: 10px;/* Bootstrap primary color */
+    color: white; /* White text */
+    position: relative;
+    left: 170px;
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    width: 100px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #303030; /* Darker blue on hover */
+}
+
+p {
+    margin-top: 15px; /* Margin above paragraph */
+    text-align: center; /* Center the text */
+}
+
+.signup-button {
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    padding: 10px 20px;
+    background-color: #007bff;
+    border-radius: 4px;
+    top: 45px;
+    left: 70px;
+    border: none;
+    font-size: 16px; /* Font size */
+    width: 100px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    color: white; /* White text */
+}
+
+button,
+.signup-button {
+     /* Same padding for both buttons */
+    background-color: #303030; /* Bootstrap primary color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    width: 100px; /* Consistent width */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover,
+.signup-button:hover {
+    background-color: grey; /* Darker blue on hover */
+}
+
+
+
+.container .right p {
+    position: relative;
+    top: 10px;
+}
+
+h2 {
+    position: relative;
+    top: 80px;
+    font: bold;
+    color: #333; /* Darker color for the heading */
+    text-align: center; /* Center text alignment */
+}
+.username{
+    font-weight: bold;
+}
+.password{
+    font-weight: bold;
+}
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column; /* Stack columns on small screens */
+        width: 100%; /* Full width on small screens */
+    }
+
+    .left {
+        height: 200px; /* Fixed height for the left side on small screens */
+        font-size: 20px; /* Smaller font size on small screens */
+    }
+
+    .right {
+        padding: 20px; /* Less padding on small screens */
+    }
+    h2{
+        top: 30px;
+    }
+    form{
+        top: 50px;
+    }
+    button{
+        top: -10px;
+        right: -10px;
+        position: relative;
+    }
+    .signup-button{
+        position: relative;
+        top: -14px;
+        left: -100px;
+    }
+}
+

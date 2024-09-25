@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <button type="button" id="add-button">
+            <img src="{{ url_for('static', filename='images/add_button.png') }}" alt="Add">
+        </button>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search">
+        </div>
+    </header>
+    
+    <div id="filter-controls">
+        <h3>Show Completed</h3>
+        <label for="show-completed">
+            <input type="checkbox" id="show-completed" name="completed"> Show Completed
+        </label>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <h2>{{username}}</h2>
+            <ul class="categories">
+                <li data-filter="all">All</li>
+                <li data-filter="home">Home</li>
+                <li data-filter="personal">Personal</li>
+                <li data-filter="business">Business</li>
+            </ul>
+            <a href="{{url_for('logout')}} " class="logout-button">Logout</a>
+        </div>
+        
+        <div class="notes">
+            <!-- Loop through the notes passed from the backend -->
+            {% for note in notes %}
+                <div class="input-box" 
+                     data-id="{{ note.id }}" 
+                     data-timestamp="{{ note.timestamp }}" 
+                     style="background-color: {{ note.color }}">
+                    <div class="note-title">{{ note.title }}</div>
+                    <p class="note-description">{{ note.description }}</p>
+                    <p class="note-category">{{ note.category }}</p>
+                    <p class="note-date">{{ note.timestamp }}</p>
+                    
+                    <!-- <input type="checkbox" class="note-completed" {% if note.completed %}checked{% endif %} id="completed-checkbox"> -->
+                    <input type="checkbox" class="note-completed" 
+                        {% if note.completed %}checked{% endif %} 
+                        id="completed-checkbox-{{ note.id }}">
+                    <label for="completed-checkbox-{{ note.id }}">C</label> 
+                    <button class="delete-button">
+                        <img src="{{ url_for('static', filename='images/delete_button.png') }}" alt="Delete" class="delete">
+                    </button>
+                    <button class="edit-button">
+                        <img src="{{ url_for('static', filename='images/edit_button.png') }}" alt="Edit" class="edit">
+                    </button>
+                    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Modal Form for Adding and Editing Notes -->
+    <div id="note-form" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Add New Note</h2>
+            <form id="add-note-form" action="{{ url_for('add_note') }}" method="POST">
+                <label for="note-title">Title:</label>
+                <input type="text" id="note-title" name="title" required placeholder="Enter title">
+                
+                <label for="note-description">Description:</label>
+                <textarea id="note-description" name="description" placeholder="Enter description"></textarea>
+                
+                <label for="note-category">Category:</label>
+                <select id="note-category" name="category" required>
+                    <option value="business">Business</option>
+                    <option value="home">Home</option>
+                    <option value="personal">Personal</option>
+                </select>
+                
+                <label for="completed-checkbox">Completed:</label>
+                <input type="checkbox" id="completed-checkbox" name="completed">
+                
+                <button type="submit" id="submit-button">Add Note</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

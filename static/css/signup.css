@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Remove default margin */
+}
+
+.container {
+    display: flex; /* Flexbox for side-by-side layout */
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+}
+
+.left {
+    flex: 1; /* Left side takes half of the container */
+    background-color: white; /* Dark background for the left side */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    color: black; /* Text color for left side */
+    padding: 20px; /* Padding for content */
+}
+
+.right {
+    flex: 1; /* Right side takes equal space */
+    background-color: #303030; /* White background for the form */
+    padding: 40px; /* Padding around the form */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333; /* Darker color for the heading */
+}
+
+form {
+    display: flex; /* Flexbox for form layout */
+    flex-direction: column; /* Stack inputs vertically */
+    position: relative;
+    top: 100px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin: 10px 0; /* Margin between inputs */
+    border: none; /* Remove the border */
+    border-bottom: 1px solid #ccc; /* Light border at the bottom */
+    font-size: 16px; /* Font size for input fields */
+    width: 100%; /* Full width inputs */
+    background-color: transparent; /* Transparent background */
+    transition: border-bottom 0.3s ease; /* Smooth transition */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-bottom: 1px solid #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    padding: 10px; /* Padding for button */
+    background-color: #303030; /* Dark background color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    width: 100px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    position: relative;
+    left: 170px;
+}
+
+button:hover {
+    background-color: grey; /* Darker background on hover */
+}
+
+.signup-button {
+    padding: 10px;
+    background-color: #303030;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+
+    width: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+    position: relative;
+    top: 0px;
+    left: 300px;
+}
+
+button:hover,
+.signup-button:hover {
+    background-color: grey; /* Same hover effect */
+}
+
+p {
+     /* Center text */
+}
+
+.container .right p {
+    position: relative;
+    top: 10px;
+    margin-top: 15px; /* Margin above paragraph */
+    text-align: center;
+    color: white;
+}
+.container .right p a{
+    color: white;
+}
+h2 {
+    position: relative;
+    top: 80px;
+    font-weight: bold;
+    color: white;
+    text-align: center; /* Center text alignment */
+}
+.username{
+    color: white;
+}
+.password{
+    color: white;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack columns vertically */
+        width: 100vw; /* Full width */
+        height: auto;
+        height: 100vh; /* Auto height to fit content */
+    }
+
+    .left {
+        height: 250px; /* Fixed height for left side on smaller screens */
+        font-size: 18px; /* Reduce font size */
+    }
+
+    .right {
+        padding: 20px; /* Reduce padding */
+    }
+
+    .signup-button {
+        position: relative; /* Make button positioning default */
+        margin: 10px 0; /* Add some margin */
+         /* Make buttons full-width */
+        font-size: 14px; /* Smaller font size */
+        margin-top: -90px;
+        margin-left: -50px;
+    }
+
+    form {
+        top: 50px; /* Move form slightly higher */
+    }
+
+    h2 {
+        top: 30px; /* Adjust heading position */
+        font-size: 22px; /* Smaller font for heading */
+    }
+}
+
+@media (max-width: 480px) {
+    .left {
+        height: 200px; /* Even smaller height for left side */
+        padding: 10px; /* Less padding */
+        font-size: 16px; /* Reduce font size */
+    }
+
+    .right {
+        padding: 15px; /* Less padding for right side */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 14px; /* Smaller input font size */
+    }
+
+    .signup-button {
+        font-size: 14px; /* Smaller button font size */
+        padding: 8px; /* Smaller padding */
+        width: 30%; /* Full-width buttons */
+        position: relative;
+        left: 150px;
+        top: 50px;
+    }
+
+    h2 {
+        font-size: 20px; /* Adjust heading size */
+        top: 20px; /* Adjust top positioning */
+    }
+    .container .right p{
+        top: 80px;
+    }
+    
+
+}
